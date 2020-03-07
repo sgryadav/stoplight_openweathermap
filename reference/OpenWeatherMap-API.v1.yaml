@@ -258,11 +258,48 @@ paths:
                           example: 04n
                           description: Weather icon id
               examples: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                example-1: {}
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/unauthorized_response'
+            multipart/form-data:
+              schema:
+                type: object
+                properties: {}
+            text/html:
+              schema:
+                type: object
+                properties: {}
+            text/plain:
+              schema:
+                type: object
+                properties: {}
+            application/EDI-X12:
+              schema:
+                type: object
+                properties: {}
+          headers: {}
     description: Access current weather data for any location on Earth including over 200
     000 weather stations.: null
     '000 cities! Current weather is frequently updated based on global models and data from more than 40': null
 components:
-  schemas: {}
+  schemas:
+    unauthorized_response:
+      title: '401'
+      type: object
+      properties:
+        cod:
+          type: integer
+        message:
+          type: string
   securitySchemes:
     app_id:
       type: apiKey
